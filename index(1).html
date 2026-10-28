@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Latikaa Tejus J | Data, Business and Trust &amp; Safety Analyst</title>
+<meta name="description" content="Portfolio of Latikaa Tejus J: SQL, Python, Tableau, and LLM-based content classification projects.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#fdeef3; --surface:#fffafc; --ink:#3b1f2e; --muted:#7a5568; --line:#f3d2de;
+  --teal:#b83a67; --teal-soft:#fbdce6; --signal:#ffb5cb; --signal-ink:#7a1f42;
+  --hero:#4a1d33; --hero-ink:#fff4f8; --hero-muted:#e7bccd;
+  --display:"Bricolage Grotesque",Georgia,sans-serif; --body:"Instrument Sans",system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#1d0f18; --surface:#2a1622; --ink:#fbe9f0; --muted:#d0a8b8; --line:#47293a;
+    --teal:#ff8fb3; --teal-soft:#3d1c2c; --signal:#ffb5cb; --signal-ink:#ffd3e1;
+    --hero:#12060d; --hero-ink:#fbe9f0; --hero-muted:#c99bae;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#1d0f18; --surface:#2a1622; --ink:#fbe9f0; --muted:#d0a8b8; --line:#47293a;
+  --teal:#ff8fb3; --teal-soft:#3d1c2c; --signal:#ffb5cb; --signal-ink:#ffd3e1;
+  --hero:#12060d; --hero-ink:#fbe9f0; --hero-muted:#c99bae;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 var(--body)}
+a{color:var(--teal)}
+:focus-visible{outline:3px solid var(--signal);outline-offset:2px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:var(--display);line-height:1.1;margin:0}
+h2{font-size:clamp(28px,4vw,40px);margin-bottom:8px}
+.sub{color:var(--muted);max-width:60ch;margin:0 0 32px}
+section{padding:72px 0}
+
+/* nav */
+header.nav{position:sticky;top:0;z-index:50;background:var(--hero);color:var(--hero-ink)}
+.nav .wrap{display:flex;align-items:center;gap:20px;height:56px}
+.brand{font:700 18px var(--display);color:var(--hero-ink);text-decoration:none;margin-right:auto}
+.nav a.l{color:var(--hero-muted);text-decoration:none;font-size:15px;font-weight:500}
+.nav a.l:hover{color:var(--hero-ink)}
+.nav button{background:none;border:1px solid #ffffff33;color:var(--hero-ink);border-radius:8px;padding:5px 10px;cursor:pointer;font:inherit;font-size:14px}
+@media(max-width:720px){.nav a.l{display:none}}
+
+/* hero */
+.hero{background:var(--hero);color:var(--hero-ink);padding:64px 0 72px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:36px}
+.tabs button{background:transparent;color:var(--hero-muted);border:1px solid #ffffff2e;border-radius:999px;padding:9px 18px;font:600 15px var(--body);cursor:pointer;transition:background .2s,color .2s}
+.tabs button[aria-pressed="true"]{background:var(--signal);color:#4a1230;border-color:var(--signal)}
+.hero h1{font-size:clamp(38px,7vw,76px);max-width:15ch;letter-spacing:-.02em}
+.hero .lede{font-size:20px;color:var(--hero-muted);max-width:56ch;margin:20px 0 32px}
+.swap{animation:swap .35s ease}
+@keyframes swap{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:16px;margin:0 0 32px;padding:0;list-style:none}
+.stats li{border-left:3px solid var(--signal);padding-left:14px}
+.stats b{display:block;font:700 34px var(--display)}
+.stats span{font-size:14px;color:var(--hero-muted)}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;padding:12px 22px;border-radius:10px;font-weight:600;text-decoration:none;border:1px solid transparent}
+.btn.p{background:var(--signal);color:#4a1230}
+.btn.s{border-color:#ffffff44;color:var(--hero-ink)}
+
+/* projects */
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
+.filters button{background:var(--surface);border:1px solid var(--line);color:var(--ink);border-radius:8px;padding:7px 14px;font:500 14px var(--body);cursor:pointer}
+.filters button[aria-pressed="true"]{background:var(--teal);color:var(--bg);border-color:var(--teal)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:20px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:10px}
+.card.top{border-color:var(--teal);box-shadow:0 0 0 1px var(--teal)}
+.card .tag{font-size:13px;font-weight:600;color:var(--signal-ink);background:color-mix(in srgb,var(--signal) 28%,transparent);align-self:flex-start;padding:2px 10px;border-radius:999px}
+.card h3{font-size:21px}
+.card p{margin:0;color:var(--muted);font-size:16px}
+.card .metric{font:700 15px var(--body);color:var(--teal)}
+.card details summary{cursor:pointer;font-weight:600;font-size:15px}
+.card details ul{margin:8px 0 0;padding-left:18px;color:var(--muted);font-size:15px}
+.card .links{margin-top:auto;padding-top:6px;font-weight:600;font-size:15px}
+.card[hidden]{display:none}
+
+/* experience timeline */
+.tl{border-left:2px solid var(--line);margin-left:6px;padding-left:28px}
+.job{position:relative;margin-bottom:40px}
+.job::before{content:"";position:absolute;left:-36px;top:8px;width:14px;height:14px;border-radius:50%;background:var(--teal);border:3px solid var(--bg)}
+.job h3{font-size:24px}
+.meta{color:var(--muted);font-size:15px;margin:4px 0 12px}
+.job ul{margin:0;padding-left:20px}
+.job li{margin-bottom:8px;max-width:75ch}
+.job li strong{color:var(--teal)}
+
+/* skills */
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{border:1px solid var(--line);background:var(--surface);padding:7px 14px;border-radius:999px;font-size:15px;transition:background .2s,border-color .2s}
+.chip.on{background:var(--teal-soft);border-color:var(--teal);font-weight:600}
+.skillgroup{margin-bottom:26px}
+.skillgroup h3{font-size:18px;margin-bottom:10px}
+.note{font-size:14px;color:var(--muted);margin-top:4px}
+
+/* credentials */
+.creds{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
+.cred{display:flex;gap:12px;align-items:center;justify-content:space-between;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px;font-weight:600;font-size:16px}
+.cred button{background:none;border:1px solid var(--line);border-radius:8px;padding:5px 12px;cursor:pointer;color:var(--teal);font:600 14px var(--body)}
+.lb{position:fixed;inset:0;background:#000000cc;display:none;align-items:center;justify-content:center;z-index:100;padding:20px}
+.lb.open{display:flex}
+.lb img{max-width:100%;max-height:100%;border-radius:8px}
+.lb .miss{color:#fff;background:#14212f;padding:20px;border-radius:10px}
+
+/* contact */
+.contact{background:var(--hero);color:var(--hero-ink)}
+.contact .sub{color:var(--hero-muted)}
+.contact a.big{font:700 clamp(22px,4vw,34px) var(--display);color:var(--signal);text-decoration:none;word-break:break-all}
+.contact .row{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+footer{padding:20px 0;text-align:center;color:var(--muted);font-size:14px}
+
+/* pink theme + icons */
+.hero{position:relative;overflow:hidden}
+.card{border-radius:20px}.cred{border-radius:16px}.btn{border-radius:999px}
+.ico{display:inline-grid;place-items:center;width:42px;height:42px;border-radius:14px;background:var(--teal-soft);color:var(--teal);flex:none}
+.ico svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.ico.sm{width:32px;height:32px;border-radius:11px}.ico.sm svg{width:18px;height:18px}
+.i{width:18px;height:18px;vertical-align:-3px;margin-right:8px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.chead{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.job h3,.skillgroup h3{display:flex;align-items:center;gap:10px}
+.cname{margin-right:auto}
+.cred{justify-content:flex-start}
+.cred a{font-weight:600;font-size:14px;color:var(--teal)}
+.deco{position:absolute;color:var(--signal);opacity:.6;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;pointer-events:none}
+.d1{width:72px;height:72px;right:9%;top:44px}.d2{width:36px;height:36px;right:20%;top:140px}.d3{width:24px;height:24px;right:5%;top:180px}
+@media(max-width:720px){.deco{display:none}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="i-chart" viewBox="0 0 24 24"><path d="M5 20v-6M12 20V5M19 20v-9M3 20h18"/></symbol><symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></symbol><symbol id="i-briefcase" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="3"/><path d="M9 7V5a2 2 0 012-2h2a2 2 0 012 2v2M3 13h18"/></symbol><symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/><path d="M19 17v4M17 19h4"/></symbol><symbol id="i-code" viewBox="0 0 24 24"><path d="M8 8l-4 4 4 4M16 8l4 4-4 4M13.5 5l-3 14"/></symbol><symbol id="i-chip" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="3"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/></symbol><symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.5 3-6 6.5-6s6.5 2.5 6.5 6M16 4.5a3.5 3.5 0 010 7M18 14c2.5.6 4 2.6 4 6"/></symbol><symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="9" r="6"/><path d="M8.5 14L7 21l5-3 5 3-1.5-7"/></symbol><symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M4 7l8 6 8-6"/></symbol><symbol id="i-link" viewBox="0 0 24 24"><path d="M10 14a4 4 0 005.7 0l3-3a4 4 0 00-5.7-5.7l-1 1M14 10a4 4 0 00-5.7 0l-3 3A4 4 0 0011 18.7l1-1"/></symbol><symbol id="i-file" viewBox="0 0 24 24"><path d="M7 3h7l5 5v11a2 2 0 01-2 2H7a2 2 0 01-2-2V5a2 2 0 012-2z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></symbol><symbol id="i-cap" viewBox="0 0 24 24"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/></symbol><symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.6-7 10-7 10z"/></symbol><symbol id="i-layers" viewBox="0 0 24 24"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/></symbol><symbol id="i-leaf" viewBox="0 0 24 24"><path d="M5 19c0-8 5-14 15-14 0 10-6 15-14 15"/><path d="M5 19c3-5 6-8 10-10"/></symbol><symbol id="i-pulse" viewBox="0 0 24 24"><path d="M3 12h4l2-5 4 10 2-5h6"/></symbol><symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 12a8 8 0 01-11.5 7.2L4 21l1.8-5A8 8 0 1121 12z"/></symbol></svg>
+
+<header class="nav"><div class="wrap">
+  <a class="brand" href="#top"><svg class="i" aria-hidden="true"><use href="#i-sparkle"/></svg>Latikaa Tejus J</a>
+  <a class="l" href="#work">Work</a><a class="l" href="#experience">Experience</a>
+  <a class="l" href="#skills">Skills</a><a class="l" href="#credentials">Credentials</a><a class="l" href="#contact">Contact</a>
+  <button id="theme" aria-label="Toggle light and dark theme">Theme</button>
+</div></header>
+
+<main id="top">
+<div class="hero"><svg class="deco d1" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-sparkle"/></svg><svg class="deco d2" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-sparkle"/></svg><svg class="deco d3" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-heart"/></svg><div class="wrap">
+  <div class="tabs" role="group" aria-label="Choose the role you are hiring for" id="tabs">
+    <button data-role="da" aria-pressed="true"><svg class="i" aria-hidden="true"><use href="#i-chart"/></svg>Data Analyst</button>
+    <button data-role="ba" aria-pressed="false"><svg class="i" aria-hidden="true"><use href="#i-briefcase"/></svg>Business Analyst</button>
+    <button data-role="ts" aria-pressed="false"><svg class="i" aria-hidden="true"><use href="#i-shield"/></svg>Trust &amp; Safety Analyst</button>
+  </div>
+  <div id="heroBody" aria-live="polite">
+    <h1 id="h1"></h1>
+    <p class="lede" id="lede"></p>
+    <ul class="stats" id="stats"></ul>
+  </div>
+  <div class="cta">
+    <a class="btn p" href="#work"><svg class="i" aria-hidden="true"><use href="#i-sparkle"/></svg>See the work</a>
+    <a class="btn s" href="resume.pdf" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-file"/></svg>Download resume</a>
+  </div>
+</div></div>
+
+<section id="work"><div class="wrap">
+  <h2>Selected work</h2>
+  <p class="sub" id="workSub">Projects most relevant to the role you picked are listed first and outlined. Use the filters to see everything else.</p>
+  <div class="filters" id="filters" role="group" aria-label="Filter projects">
+    <button data-f="all" aria-pressed="true">All</button>
+    <button data-f="da" aria-pressed="false">Data analysis</button>
+    <button data-f="ba" aria-pressed="false">Business analysis</button>
+    <button data-f="ts" aria-pressed="false">Trust &amp; Safety</button>
+  </div>
+  <div class="grid" id="grid">
+
+    <article class="card" data-roles="ts da" data-rank-ts="1" data-rank-da="2">
+      <div class="chead"><span class="ico"><svg aria-hidden="true"><use href="#i-chat"/></svg></span><span class="tag">Flagship</span></div>
+      <h3>LLM Toxic Comment Classification</h3>
+      <p>A moderation pipeline that uses zero-shot LLMs and prompt engineering to flag abusive and harmful comments from the Jigsaw dataset.</p>
+      <div class="metric">92.5% accuracy</div>
+      <details><summary>How it was evaluated</summary><ul>
+        <li>Ran exploratory analysis on the Jigsaw Toxic Comment data.</li>
+        <li>Measured accuracy, precision, recall, F1 and a confusion matrix.</li>
+        <li>Studied the trade-off between false positives and false negatives, and where the model behaved inconsistently across toxicity categories.</li></ul></details>
+      <div class="links"><a href="https://colab.research.google.com/drive/1k3wc04gz9pdzPDw1o8P3ypoj_M0Qx_ZN#scrollTo=FkOaSTxKhgd9" target="_blank" rel="noopener">Open notebook</a></div>
+    </article>
+
+    <article class="card" data-roles="da ba" data-rank-da="1" data-rank-ba="2">
+      <div class="chead"><span class="ico"><svg aria-hidden="true"><use href="#i-chart"/></svg></span><span class="tag">Dashboards</span></div>
+      <h3>Maternal Health Dashboards (Savemom)</h3>
+      <p>Cleaned and validated maternal health records, then turned them into interactive Tableau reports for healthcare staff.</p>
+      <div class="metric">300+ records cleaned, 2 recurring reports</div>
+      <div class="links"><a href="https://public.tableau.com/app/profile/latikaa.tejus.j/vizzes" target="_blank" rel="noopener">View Tableau profile</a></div>
+    </article>
+
+    <article class="card" data-roles="ba da" data-rank-ba="1" data-rank-da="3">
+      <div class="chead"><span class="ico"><svg aria-hidden="true"><use href="#i-layers"/></svg></span><span class="tag">Segmentation</span></div>
+      <h3>Market Segmentation of Global Grain Importers</h3>
+      <p>Grouped importing countries with unsupervised learning so a business could tell which markets behave alike and where to focus.</p>
+      <div class="links"><a href="https://colab.research.google.com/drive/1iOVvPheQULOlskJF8FgdGNw3BTEhSqfq#scrollTo=sYryEhyE177_" target="_blank" rel="noopener">Open notebook</a></div>
+    </article>
+
+    <article class="card" data-roles="da ts" data-rank-da="4" data-rank-ts="2">
+      <div class="chead"><span class="ico"><svg aria-hidden="true"><use href="#i-leaf"/></svg></span><span class="tag">Machine learning</span></div>
+      <h3>Plant Species Classification</h3>
+      <p>Compared Random Forest, Decision Tree, SVM and Naive Bayes on 99 species, with stratified validation and log loss alongside accuracy.</p>
+      <div class="metric">98.48% accuracy</div>
+      <div class="links"><a href="https://colab.research.google.com/drive/1V5WXtoRS0CH0mIcY3-BzKw1WJocRYqTP#scrollTo=-J8UeuWBDZ3e" target="_blank" rel="noopener">Open notebook</a></div>
+    </article>
+
+    <article class="card" data-roles="da" data-rank-da="5">
+      <div class="chead"><span class="ico"><svg aria-hidden="true"><use href="#i-pulse"/></svg></span><span class="tag">Analysis</span></div>
+      <h3>Medical Data Analysis</h3>
+      <p>Exploratory analysis of a medical dataset to surface patterns and risk factors.</p>
+      <div class="links"><a href="https://github.com/LatikaaTejus/medical-data-analysis" target="_blank" rel="noopener">View on GitHub</a></div>
+    </article>
+
+    <article class="card" data-roles="da" data-rank-da="6">
+      <div class="chead"><span class="ico"><svg aria-hidden="true"><use href="#i-chip"/></svg></span><span class="tag">Automation</span></div>
+      <h3>Automated Healthcare Kit using ML</h3>
+      <p>A machine learning and automation project for healthcare monitoring.</p>
+      <div class="links"><a href="https://github.com/LatikaaTejus/HEALTH-CARE-KIT-USING-ML-AND-AUTOMATION" target="_blank" rel="noopener">View on GitHub</a></div>
+    </article>
+
+  </div>
+</div></section>
+
+<section id="experience" style="background:var(--surface)"><div class="wrap">
+  <h2>Experience</h2>
+  <p class="sub">Where I have worked with real data, real stakeholders and real deadlines.</p>
+  <div class="tl">
+    <div class="job">
+      <h3><span class="ico sm"><svg aria-hidden="true"><use href="#i-briefcase"/></svg></span>Assistant System Engineer</h3>
+      <div class="meta">Tata Consultancy Services, Hyderabad | Sept 2024 to present</div>
+      <ul>
+        <li>Automated 7 enterprise batch workflows for EDI invoice processing, cutting manual effort by <strong>40%</strong> across three client implementations.</li>
+        <li>Built an AI-assisted comparison of baseline and client-specific requirements, taking analysis from 14 hours to 2 hours (<strong>90% faster</strong>) and speeding up client onboarding.</li>
+        <li>Worked with 7+ stakeholders to design SQL mappings, validation logic and end-to-end tests.</li>
+        <li>Traced production data issues to root cause with developers, reducing post-release defects by <strong>15%</strong>.</li>
+        <li>Recognised with the TCS AI Spark award (1,500 points) for the WINGS-1 technical assessment.</li>
+      </ul>
+    </div>
+    <div class="job">
+      <h3><span class="ico sm"><svg aria-hidden="true"><use href="#i-chart"/></svg></span>Data Analyst Intern</h3>
+      <div class="meta">Savemom | Jan 2024 to Apr 2024</div>
+      <ul>
+        <li>Cleaned and validated <strong>300+</strong> maternal health records, fixing missing and inconsistent values so reports and patient tracking were reliable.</li>
+        <li>Built Tableau dashboards behind <strong>two recurring reports</strong>, so leadership could review results without manual compilation.</li>
+        <li>Worked with healthcare professionals to standardise reporting and keep the master dataset consistent.</li>
+        <li>Streamlined recurring data processing with Excel functions, which noticeably shortened the time each cycle took.</li>
+        <li>Helped replicate a medical device by integrating sensors, and improved how efficiently it worked.</li>
+      </ul>
+    </div>
+    <div class="job">
+      <h3><span class="ico sm"><svg aria-hidden="true"><use href="#i-cap"/></svg></span>B.E. Electronics and Communication Engineering</h3>
+      <div class="meta">K.L.N. College of Engineering | 2020 to 2024 | CGPA 8.86</div>
+    </div>
+  </div>
+</div></section>
+
+<section id="skills"><div class="wrap">
+  <h2>Skills</h2>
+  <p class="sub" id="skillSub">Highlighted skills match the role you picked at the top.</p>
+  <div class="skillgroup"><h3><span class="ico sm"><svg aria-hidden="true"><use href="#i-code"/></svg></span>Query and code</h3><div class="chips">
+    <span class="chip" data-roles="da ba ts">SQL</span><span class="chip" data-roles="da ts">Python</span><span class="chip" data-roles="da ts">BigQuery</span><span class="chip" data-roles="da ba">Excel</span></div></div>
+  <div class="skillgroup"><h3><span class="ico sm"><svg aria-hidden="true"><use href="#i-chart"/></svg></span>Analysis and reporting</h3><div class="chips">
+    <span class="chip" data-roles="da ba">Tableau</span><span class="chip" data-roles="da ba">Power BI</span><span class="chip" data-roles="da ba ts">Exploratory data analysis</span><span class="chip" data-roles="da ba ts">Data cleaning and validation</span><span class="chip" data-roles="da ba ts">Root cause analysis</span><span class="chip" data-roles="da ts">Hypothesis and A/B testing</span><span class="chip" data-roles="ba da">Dashboards and KPI tracking</span></div></div>
+  <div class="skillgroup"><h3><span class="ico sm"><svg aria-hidden="true"><use href="#i-sparkle"/></svg></span>Machine learning and AI</h3><div class="chips">
+    <span class="chip" data-roles="ts da">Classification models</span><span class="chip" data-roles="ts">LLMs and prompt engineering</span><span class="chip" data-roles="ts">Content classification</span><span class="chip" data-roles="ts da">Anomaly detection</span><span class="chip" data-roles="ts da">Precision and recall trade-offs</span></div></div>
+  <div class="skillgroup"><h3><span class="ico sm"><svg aria-hidden="true"><use href="#i-users"/></svg></span>Working with people</h3><div class="chips">
+    <span class="chip" data-roles="ba">Requirements gathering</span><span class="chip" data-roles="ba">Stakeholder management</span><span class="chip" data-roles="ba da ts">Cross-functional collaboration</span><span class="chip" data-roles="ba ts">Technical documentation</span><span class="chip" data-roles="ba da">Workflow automation</span></div></div>
+</div></section>
+
+<section id="credentials" style="background:var(--surface)"><div class="wrap">
+  <h2>Credentials</h2>
+  <p class="sub">Certificates open as full images. Badge links go to the issuer.</p>
+  <div class="creds">
+    <div class="cred"><span class="ico sm"><svg aria-hidden="true"><use href="#i-award"/></svg></span><span class="cname">Google Data Analytics (Coursera)</span><button data-img="cert1-full.jpg">View</button></div>
+    <div class="cred"><span class="ico sm"><svg aria-hidden="true"><use href="#i-award"/></svg></span><span class="cname">Google Generative AI Leader</span><button data-img="cert3-full.jpg">View</button></div>
+    <div class="cred"><span class="ico sm"><svg aria-hidden="true"><use href="#i-award"/></svg></span><span class="cname">Data Analytics Essentials (Cisco)</span><button data-img="cert2-full.jpg">View</button></div>
+    <div class="cred"><span class="ico sm"><svg aria-hidden="true"><use href="#i-award"/></svg></span><span class="cname">MDM SaaS (Informatica)</span><button data-img="cc.jpg">View</button></div>
+    <div class="cred"><span class="ico sm"><svg aria-hidden="true"><use href="#i-award"/></svg></span><span class="cname">Credly badges</span><a href="https://www.credly.com/users/latika-tejus" target="_blank" rel="noopener">Open</a></div>
+    <div class="cred"><span class="ico sm"><svg aria-hidden="true"><use href="#i-award"/></svg></span><span class="cname">Google Cloud Skills Boost</span><a href="https://www.cloudskillsboost.google/public_profiles/d017415c-1e9f-4081-adea-9efa426318c7" target="_blank" rel="noopener">Open</a></div>
+    <div class="cred"><span class="ico sm"><svg aria-hidden="true"><use href="#i-award"/></svg></span><span class="cname">Microsoft Learn</span><a href="https://learn.microsoft.com/en-us/users/latikatejusj-6364/" target="_blank" rel="noopener">Open</a></div>
+  </div>
+</div></section>
+
+<section id="contact" class="contact"><div class="wrap">
+  <h2>Let’s talk <svg class="i" aria-hidden="true"><use href="#i-heart"/></svg></h2>
+  <p class="sub">Hiring for a data, business analysis or Trust &amp; Safety role? Email is the fastest way to reach me.</p>
+  <a class="big" href="mailto:tejus252002@gmail.com"><svg class="i" aria-hidden="true"><use href="#i-mail"/></svg>tejus252002@gmail.com</a>
+  <div class="row">
+    <a class="btn p" href="https://www.linkedin.com/in/this-is-latikaa-tejus-j" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-link"/></svg>LinkedIn</a>
+    <a class="btn s" href="https://github.com/LatikaaTejus" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-code"/></svg>GitHub</a>
+    <a class="btn s" href="resume.pdf" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-file"/></svg>Resume</a>
+  </div>
+</div></section>
+</main>
+
+<footer>© <span id="yr"></span> Latikaa Tejus J</footer>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Certificate"></div>
+
+<script>
+const ROLES = {
+  da: {
+    h1: "I turn messy data into decisions people trust.",
+    lede: "Data analyst with SQL, Python and Tableau, cleaning and validating real operational and healthcare data and presenting it in dashboards leaders actually use.",
+    stats: [["98.48%","accuracy on a 99-class plant model"],["300+","health records cleaned and validated"],["40%","less manual effort from automated workflows"]]
+  },
+  ba: {
+    h1: "I turn business needs into clear, testable requirements.",
+    lede: "Business analyst experience from enterprise delivery at TCS: working with clients and developers to define requirements, map data and prove the solution works.",
+    stats: [["90%","faster requirement analysis (14h to 2h)"],["7+","stakeholders worked with per solution"],["3","client implementations supported"]]
+  },
+  ts: {
+    h1: "I build and test systems that find harmful content.",
+    lede: "Analyst who has built an LLM moderation pipeline and studied its false positives and false negatives, with a data and root-cause background to match.",
+    stats: [["92.5%","accuracy on Jigsaw toxic comments"],["F1","precision and recall trade-offs analysed"],["15%","fewer post-release defects after root-cause work"]]
+  }
+};
+const $ = (s, r=document) => r.querySelector(s), $$ = (s, r=document) => [...r.querySelectorAll(s)];
+let role = "da";
+
+function setRole(r, animate=true){
+  role = ROLES[r] ? r : "da";
+  $$("#tabs button").forEach(b => b.setAttribute("aria-pressed", b.dataset.role === role));
+  const d = ROLES[role];
+  $("#h1").textContent = d.h1; $("#lede").textContent = d.lede;
+  $("#stats").innerHTML = d.stats.map(s => `<li><b>${s[0]}</b><span>${s[1]}</span></li>`).join("");
+  if(animate){ const el = $("#heroBody"); el.classList.remove("swap"); void el.offsetWidth; el.classList.add("swap"); }
+  const grid = $("#grid");
+  $$(".card", grid).sort((a,b) => (+a.dataset["rank"+cap(role)] || 99) - (+b.dataset["rank"+cap(role)] || 99))
+    .forEach(c => { c.classList.toggle("top", c.dataset.roles.split(" ")[0] === role || +c.dataset["rank"+cap(role)] === 1); grid.appendChild(c); });
+  $$(".chip").forEach(c => c.classList.toggle("on", c.dataset.roles.split(" ").includes(role)));
+  history.replaceState(null, "", "?role=" + role);
+}
+const cap = s => s.charAt(0).toUpperCase() + s.slice(1);
+
+function setFilter(f){
+  $$("#filters button").forEach(b => b.setAttribute("aria-pressed", b.dataset.f === f));
+  $$(".card").forEach(c => c.hidden = !(f === "all" || c.dataset.roles.split(" ").includes(f)));
+}
+
+$("#tabs").addEventListener("click", e => { const b = e.target.closest("button"); if(b) setRole(b.dataset.role); });
+$("#filters").addEventListener("click", e => { const b = e.target.closest("button"); if(b) setFilter(b.dataset.f); });
+
+/* lightbox */
+const lb = $("#lb");
+function closeLb(){ lb.classList.remove("open"); lb.innerHTML = ""; }
+$$("[data-img]").forEach(b => b.addEventListener("click", () => {
+  const img = new Image(); img.alt = "Certificate"; img.src = b.dataset.img;
+  img.onerror = () => { lb.innerHTML = '<div class="miss">Certificate image not found. Check the file name in the repo.</div>'; };
+  lb.innerHTML = ""; lb.appendChild(img); lb.classList.add("open");
+}));
+lb.addEventListener("click", closeLb);
+document.addEventListener("keydown", e => { if(e.key === "Escape") closeLb(); });
+
+/* theme */
+const root = document.documentElement;
+$("#theme").addEventListener("click", () => {
+  const dark = root.dataset.theme ? root.dataset.theme === "dark" : matchMedia("(prefers-color-scheme:dark)").matches;
+  root.dataset.theme = dark ? "light" : "dark";
+});
+
+$("#yr").textContent = new Date().getFullYear();
+setRole(new URLSearchParams(location.search).get("role") || "da", false);
+</script>
+</body>
+</html>
