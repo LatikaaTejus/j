@@ -144,6 +144,15 @@ footer{padding:20px 0;text-align:center;color:var(--muted);font-size:14px}
 .dlrow{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
 .dlrow button{cursor:pointer;font:600 15px var(--body)}
 .dlrow .skip{background:none;border:1px solid var(--line);color:var(--muted)}
+
+.awards{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px}
+.award{background:var(--surface);border:1px solid var(--line);border-radius:20px;overflow:hidden;display:flex;flex-direction:column}
+.athumb{display:block;width:100%;aspect-ratio:4/3;padding:0;border:0;background:var(--teal-soft);cursor:zoom-in}
+.athumb img{width:100%;height:100%;object-fit:contain;display:block}
+.abody{padding:16px 18px 20px}
+.abody h3{font-size:19px}
+.ameta{font-size:14px;color:var(--teal);font-weight:600;margin:4px 0 6px}
+.abody p{margin:0;color:var(--muted);font-size:15px}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
@@ -153,7 +162,7 @@ footer{padding:20px 0;text-align:center;color:var(--muted);font-size:14px}
 <header class="nav"><div class="wrap">
   <a class="brand" href="#top"><svg class="i" aria-hidden="true"><use href="#i-sparkle"/></svg>Latikaa Tejus J</a>
   <a class="l" href="#work">Work</a><a class="l" href="#experience">Experience</a>
-  <a class="l" href="#skills">Skills</a><a class="l" href="#credentials">Credentials</a><a class="l" href="#contact">Contact</a>
+  <a class="l" href="#skills">Skills</a><a class="l" href="#credentials">Credentials</a><a class="l" href="#awards">Awards</a><a class="l" href="#contact">Contact</a>
   <button id="theme" aria-label="Toggle light and dark theme">Theme</button>
 </div></header>
 
@@ -337,6 +346,14 @@ footer{padding:20px 0;text-align:center;color:var(--muted);font-size:14px}
   </div>
 </div></section>
 
+<section id="awards"><div class="wrap">
+  <h2>Awards and appreciation</h2>
+  <p class="sub">Recognition from teammates, clients and programs. Click an image to see it full size.</p>
+  <div class="awards" id="awardGrid">
+    <!-- PASTE YOUR AWARD BLOCKS HERE -->
+  </div>
+</div></section>
+
 <section id="contact" class="contact"><div class="wrap">
   <h2>Let’s talk <svg class="i" aria-hidden="true"><use href="#i-heart"/></svg></h2>
   <p class="sub">Hiring for a data, business analysis or Trust &amp; Safety role? Email is the fastest way to reach me.</p>
@@ -388,7 +405,7 @@ const RES = {
   ts: {file:"resume-ts.pdf", label:"Trust & Safety Analyst"}
 };
 /* Download alerts are emailed to this address through FormSubmit (no account needed). */
-const FORM_ENDPOINT = "https://formsubmit.co/ajax/tejus252002@gmail.com";
+const FORM_ENDPOINT = "https://formspree.io/f/xoeezlny";
 let role = "da";
 
 function setRole(r, animate=true){
@@ -456,6 +473,9 @@ $("#theme").addEventListener("click", () => {
   root.dataset.theme = dark ? "light" : "dark";
 });
 
+const hasAwards = !!$("#awards .award");
+$("#awards").hidden = !hasAwards;
+$$('a[href="#awards"]').forEach(a => a.hidden = !hasAwards);
 $("#yr").textContent = new Date().getFullYear();
 setRole(new URLSearchParams(location.search).get("role") || "da", false);
 </script>
