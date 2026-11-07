@@ -63,7 +63,7 @@ header.nav{position:sticky;top:0;z-index:50;background:var(--hero);color:var(--h
 .cta{display:flex;gap:12px;flex-wrap:wrap}
 .btn{display:inline-block;padding:12px 22px;border-radius:10px;font-weight:600;text-decoration:none;border:1px solid transparent}
 .btn.p{background:var(--signal);color:#4a1230}
-.btn.s{border-color:#ffffff44;color:var(--hero-ink)}
+.btn.s{border-color:#ffffff44;color:var(--hero-ink);background:transparent;font:600 17px var(--body);cursor:pointer}
 
 /* projects */
 .filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
@@ -130,6 +130,20 @@ footer{padding:20px 0;text-align:center;color:var(--muted);font-size:14px}
 .deco{position:absolute;color:var(--signal);opacity:.6;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;pointer-events:none}
 .d1{width:72px;height:72px;right:9%;top:44px}.d2{width:36px;height:36px;right:20%;top:140px}.d3{width:24px;height:24px;right:5%;top:180px}
 @media(max-width:720px){.deco{display:none}}
+
+.card details h4{margin:12px 0 4px;font:600 14px var(--body);color:var(--ink)}
+.card details p{font-size:15px}
+.stack{font-size:13px;color:var(--muted)}
+.mt{width:100%;border-collapse:collapse;font-size:14px;color:var(--muted)}
+.mt td{border-bottom:1px solid var(--line);padding:6px 4px;vertical-align:top}
+.mt td:first-child{font-weight:600;color:var(--ink);width:45%}
+.dlbox{background:var(--surface);color:var(--ink);border-radius:20px;padding:26px;max-width:420px;width:100%;display:grid;gap:12px}
+.dlbox h3{font-size:24px}.dlbox p{margin:0;color:var(--muted);font-size:15px}
+.dlbox label{display:grid;gap:4px;font-weight:600;font-size:14px}
+.dlbox input{font:inherit;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink)}
+.dlrow{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.dlrow button{cursor:pointer;font:600 15px var(--body)}
+.dlrow .skip{background:none;border:1px solid var(--line);color:var(--muted)}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
@@ -157,7 +171,7 @@ footer{padding:20px 0;text-align:center;color:var(--muted);font-size:14px}
   </div>
   <div class="cta">
     <a class="btn p" href="#work"><svg class="i" aria-hidden="true"><use href="#i-sparkle"/></svg>See the work</a>
-    <a class="btn s" href="Resume" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-file"/></svg>Download resume</a>
+    <button class="btn s" id="dlBtn" type="button"><svg class="i" aria-hidden="true"><use href="#i-file"/></svg><span id="dlLabel">Download resume</span></button>
   </div>
 </div></div>
 
@@ -172,7 +186,34 @@ footer{padding:20px 0;text-align:center;color:var(--muted);font-size:14px}
   </div>
   <div class="grid" id="grid">
 
-    <article class="card" data-roles="ts da" data-rank-ts="1" data-rank-da="2">
+    <article class="card" data-roles="ts da" data-rank-ts="1" data-rank-da="7">
+      <div class="chead"><span class="ico"><svg aria-hidden="true"><use href="#i-shield"/></svg></span><span class="tag">Case study</span></div>
+      <h3>Automated Content Safety and Policy Violation Detection</h3>
+      <p>An end-to-end analytics and classification framework that combines rule-based logic and supervised ML to flag policy-violating content and send the riskiest items to moderators first.</p>
+      <div class="stack">Python | SQL | NLP and classification | Power BI / Tableau</div>
+      <div class="metric">89% accuracy | 35% smaller review backlog</div>
+      <details><summary>Read the case study</summary>
+        <h4>Problem</h4><p>Platforms receive huge volumes of user content. Reviewing every flagged item by hand creates backlogs and slows policy enforcement. The goal was to automate first-pass triage and anomaly detection across large log data.</p>
+        <h4>Approach</h4><ul>
+          <li>Cleaned structured and unstructured log data in Python: text normalisation, tokenisation and label encoding.</li>
+          <li>Used SQL to explore user-report patterns, false-positive ratios and peak violation windows.</li>
+          <li>Trained Random Forest, Decision Tree, Naive Bayes and SVM classifiers on labelled policy data with an 80:20 stratified split.</li>
+          <li>Built thresholds that auto-resolve low-risk edge cases and route high-severity breaches to senior reviewers.</li></ul>
+        <h4>Results</h4><table class="mt"><tr><td>Classification accuracy</td><td>89% on policy breach detection</td></tr><tr><td>Review backlog</td><td>Reduced by 35%</td></tr><tr><td>High-risk triage</td><td>Severe violations prioritised in under 5 minutes</td></tr></table>
+        <h4>Dashboards</h4><ul><li>Policy breach trends by category, such as spam, harmful content and impersonation.</li><li>Moderation queue tracker: reviewer throughput, turnaround time and false-positive rates by policy area.</li></ul>
+      </details>
+      <div class="links"><a href="https://content-moderation-policy-governace-and-risk-dashboard-6l2mkqz.streamlit.app/" target="_blank" rel="noopener">Open live dashboard</a></div>
+    </article>
+
+    <article class="card" data-roles="ba da" data-rank-ba="1" data-rank-da="8">
+      <div class="chead"><span class="ico"><svg aria-hidden="true"><use href="#i-sparkle"/></svg></span><span class="tag">Live app</span></div>
+      <h3>AI Business Analyst Copilot</h3>
+      <p>A live Streamlit app that turns multi-year trade and revenue data into business insight, using PCA and K-Means clustering to group markets into three segments.</p>
+      <div class="stack">Python (pandas, scikit-learn) | Streamlit</div>
+      <div class="links"><a href="https://ai-business-analyst-copilot-uuou5kbra7nfvnn5ad2enu.streamlit.app/" target="_blank" rel="noopener">Open live app</a></div>
+    </article>
+
+    <article class="card" data-roles="ts da" data-rank-ts="2" data-rank-da="2">
       <div class="chead"><span class="ico"><svg aria-hidden="true"><use href="#i-chat"/></svg></span><span class="tag">Flagship</span></div>
       <h3>LLM Toxic Comment Classification</h3>
       <p>A moderation pipeline that uses zero-shot LLMs and prompt engineering to flag abusive and harmful comments from the Jigsaw dataset.</p>
@@ -184,7 +225,7 @@ footer{padding:20px 0;text-align:center;color:var(--muted);font-size:14px}
       <div class="links"><a href="https://colab.research.google.com/drive/1k3wc04gz9pdzPDw1o8P3ypoj_M0Qx_ZN#scrollTo=FkOaSTxKhgd9" target="_blank" rel="noopener">Open notebook</a></div>
     </article>
 
-    <article class="card" data-roles="da ba" data-rank-da="1" data-rank-ba="2">
+    <article class="card" data-roles="da ba" data-rank-da="1" data-rank-ba="3">
       <div class="chead"><span class="ico"><svg aria-hidden="true"><use href="#i-chart"/></svg></span><span class="tag">Dashboards</span></div>
       <h3>Maternal Health Dashboards (Savemom)</h3>
       <p>Cleaned and validated maternal health records, then turned them into interactive Tableau reports for healthcare staff.</p>
@@ -192,14 +233,25 @@ footer{padding:20px 0;text-align:center;color:var(--muted);font-size:14px}
       <div class="links"><a href="https://public.tableau.com/app/profile/latikaa.tejus.j/vizzes" target="_blank" rel="noopener">View Tableau profile</a></div>
     </article>
 
-    <article class="card" data-roles="ba da" data-rank-ba="1" data-rank-da="3">
+    <article class="card" data-roles="ba da" data-rank-ba="2" data-rank-da="3">
       <div class="chead"><span class="ico"><svg aria-hidden="true"><use href="#i-layers"/></svg></span><span class="tag">Segmentation</span></div>
       <h3>Market Segmentation of Global Grain Importers</h3>
-      <p>Grouped importing countries with unsupervised learning so a business could tell which markets behave alike and where to focus.</p>
+      <p>Analysed 18 years of export and market data, using PCA and clustering to show which markets behave alike and where to focus pricing and supply decisions.</p>
+      <div class="stack">Python (pandas, scikit-learn) | SQL | Power BI / Tableau | Excel</div>
+      <div class="metric">3 revenue clusters found | over 85% variance kept</div>
+      <details><summary>Read the case study</summary>
+        <h4>Business problem</h4><p>Leadership needed clearer multi-year revenue patterns and segment behaviour to plan forecasts and resources, but the raw trade data was high-dimensional and noisy.</p>
+        <h4>Approach</h4><ul>
+          <li>Cleaned and normalised multi-year financial and volume data with SQL and pandas, handling missing values and outliers.</li>
+          <li>Used PCA to cut the dimensions by 60% while keeping over 85% of the variance.</li>
+          <li>Segmented markets with K-Means and hierarchical clustering into low, medium and high-value trade channels.</li>
+          <li>Pointed out the top revenue clusters and the underperforming segments worth a pricing or margin change.</li></ul>
+        <h4>Results</h4><table class="mt"><tr><td>Segments identified</td><td>3 distinct revenue clusters, by volume and price volatility</td></tr><tr><td>Dimensionality</td><td>Over 85% variance kept with 60% fewer dimensions</td></tr><tr><td>Decision value</td><td>Clearer revenue trends for executives</td></tr></table>
+      </details>
       <div class="links"><a href="https://colab.research.google.com/drive/1iOVvPheQULOlskJF8FgdGNw3BTEhSqfq#scrollTo=sYryEhyE177_" target="_blank" rel="noopener">Open notebook</a></div>
     </article>
 
-    <article class="card" data-roles="da ts" data-rank-da="4" data-rank-ts="2">
+    <article class="card" data-roles="da ts" data-rank-da="4" data-rank-ts="3">
       <div class="chead"><span class="ico"><svg aria-hidden="true"><use href="#i-leaf"/></svg></span><span class="tag">Machine learning</span></div>
       <h3>Plant Species Classification</h3>
       <p>Compared Random Forest, Decision Tree, SVM and Naive Bayes on 99 species, with stratified validation and log loss alongside accuracy.</p>
@@ -252,7 +304,7 @@ footer{padding:20px 0;text-align:center;color:var(--muted);font-size:14px}
     </div>
     <div class="job">
       <h3><span class="ico sm"><svg aria-hidden="true"><use href="#i-cap"/></svg></span>B.E. Electronics and Communication Engineering</h3>
-      <div class="meta">K.L.N. College of Engineering | 2020 to 2024 | CGPA 8.86</div>
+      <div class="meta">K.L.N. College of Engineering | 2020 to 2024 | CGPA 8.85 | First Class with Distinction</div>
     </div>
   </div>
 </div></section>
@@ -277,7 +329,7 @@ footer{padding:20px 0;text-align:center;color:var(--muted);font-size:14px}
     <div class="cred"><span class="ico sm"><svg aria-hidden="true"><use href="#i-award"/></svg></span><span class="cname">Google Data Analytics (Coursera)</span><button data-img="cert1-full.jpg">View</button></div>
     <div class="cred"><span class="ico sm"><svg aria-hidden="true"><use href="#i-award"/></svg></span><span class="cname">Google Generative AI Leader</span><button data-img="cert3-full.jpg">View</button></div>
     <div class="cred"><span class="ico sm"><svg aria-hidden="true"><use href="#i-award"/></svg></span><span class="cname">Data Analytics Essentials (Cisco)</span><button data-img="cert2-full.jpg">View</button></div>
-    <div class="cred"><span class="ico sm"><svg aria-hidden="true"><use href="#i-award"/></svg></span><span class="cname">Claude certifed associate (Anthropic)</span><button data-img="anthropic.jpg">View</button></div> 
+    <div class="cred"><span class="ico sm"><svg aria-hidden="true"><use href="#i-award"/></svg></span><span class="cname">Claude Certified Associate (Anthropic)</span><button data-img="anthropic.jpg">View</button></div>
     <div class="cred"><span class="ico sm"><svg aria-hidden="true"><use href="#i-award"/></svg></span><span class="cname">MDM SaaS (Informatica)</span><button data-img="cc.jpg">View</button></div>
     <div class="cred"><span class="ico sm"><svg aria-hidden="true"><use href="#i-award"/></svg></span><span class="cname">Credly badges</span><a href="https://www.credly.com/users/latika-tejus" target="_blank" rel="noopener">Open</a></div>
     <div class="cred"><span class="ico sm"><svg aria-hidden="true"><use href="#i-award"/></svg></span><span class="cname">Google Cloud Skills Boost</span><a href="https://www.cloudskillsboost.google/public_profiles/d017415c-1e9f-4081-adea-9efa426318c7" target="_blank" rel="noopener">Open</a></div>
@@ -292,12 +344,22 @@ footer{padding:20px 0;text-align:center;color:var(--muted);font-size:14px}
   <div class="row">
     <a class="btn p" href="https://www.linkedin.com/in/this-is-latikaa-tejus-j" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-link"/></svg>LinkedIn</a>
     <a class="btn s" href="https://github.com/LatikaaTejus" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-code"/></svg>GitHub</a>
-    <a class="btn s" href="resume.pdf" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-file"/></svg>Resume</a>
   </div>
 </div></section>
 </main>
 
 <footer>© <span id="yr"></span> Latikaa Tejus J</footer>
+
+<div class="lb" id="dl" role="dialog" aria-modal="true" aria-labelledby="dlT">
+  <form class="dlbox" id="dlForm">
+    <h3 id="dlT">Download resume</h3>
+    <p>Share your name and email so I can follow up. It is only used to reply to you.</p>
+    <label>Name<input name="name" autocomplete="name"></label>
+    <label>Email<input type="email" name="email" autocomplete="email"></label>
+    <label>Company (optional)<input name="company" autocomplete="organization"></label>
+    <div class="dlrow"><button class="btn p" type="submit">Download</button><button class="btn skip" type="button" id="dlSkip">Skip and download</button></div>
+  </form>
+</div>
 
 <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Certificate"></div>
 
@@ -320,6 +382,13 @@ const ROLES = {
   }
 };
 const $ = (s, r=document) => r.querySelector(s), $$ = (s, r=document) => [...r.querySelectorAll(s)];
+const RES = {
+  da: {file:"resume-da.pdf", label:"Data Analyst"},
+  ba: {file:"resume-ba.pdf", label:"Business Analyst"},
+  ts: {file:"resume-ts.pdf", label:"Trust & Safety Analyst"}
+};
+/* Download alerts are emailed to this address through FormSubmit (no account needed). */
+const FORM_ENDPOINT = "https://formsubmit.co/ajax/tejus252002@gmail.com";
 let role = "da";
 
 function setRole(r, animate=true){
@@ -328,6 +397,7 @@ function setRole(r, animate=true){
   const d = ROLES[role];
   $("#h1").textContent = d.h1; $("#lede").textContent = d.lede;
   $("#stats").innerHTML = d.stats.map(s => `<li><b>${s[0]}</b><span>${s[1]}</span></li>`).join("");
+  $("#dlLabel").textContent = "Download " + RES[role].label + " resume";
   if(animate){ const el = $("#heroBody"); el.classList.remove("swap"); void el.offsetWidth; el.classList.add("swap"); }
   const grid = $("#grid");
   $$(".card", grid).sort((a,b) => (+a.dataset["rank"+cap(role)] || 99) - (+b.dataset["rank"+cap(role)] || 99))
@@ -355,6 +425,29 @@ $$("[data-img]").forEach(b => b.addEventListener("click", () => {
 }));
 lb.addEventListener("click", closeLb);
 document.addEventListener("keydown", e => { if(e.key === "Escape") closeLb(); });
+
+/* resume download with alert */
+const dl = $("#dl"), dlForm = $("#dlForm");
+function notify(extra){
+  const r = RES[role];
+  const body = Object.assign({ _template:"table", _subject:"Resume downloaded: " + r.label, resume:r.label, page:location.href,
+    referrer:document.referrer || "direct", time:new Date().toLocaleString(), language:navigator.language }, extra);
+  fetch(FORM_ENDPOINT, {method:"POST", headers:{"Content-Type":"application/json","Accept":"application/json"}, body:JSON.stringify(body)}).catch(()=>{});
+}
+function startDownload(){
+  const a = document.createElement("a"); a.href = RES[role].file; a.download = RES[role].file;
+  document.body.appendChild(a); a.click(); a.remove();
+}
+function closeDl(){ dl.classList.remove("open"); }
+$("#dlBtn").addEventListener("click", () => { $("#dlT").textContent = "Download " + RES[role].label + " resume"; dl.classList.add("open"); dlForm.name.focus(); });
+dlForm.addEventListener("submit", e => {
+  e.preventDefault();
+  notify({name:dlForm.name.value.trim() || "Not given", email:dlForm.email.value.trim() || "Not given", company:dlForm.company.value.trim() || "Not given"});
+  startDownload(); closeDl(); dlForm.reset();
+});
+$("#dlSkip").addEventListener("click", () => { notify({name:"Skipped", email:"Skipped", company:"Skipped"}); startDownload(); closeDl(); });
+dl.addEventListener("click", e => { if(e.target === dl) closeDl(); });
+document.addEventListener("keydown", e => { if(e.key === "Escape") closeDl(); });
 
 /* theme */
 const root = document.documentElement;
